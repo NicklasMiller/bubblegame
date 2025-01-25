@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp2hq0h3lliec"]
+
+[ext_resource type="Script" path="res://collect_coin.gd" id="1_6fo0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nna3e"]
+radius = 21.095
+
+[node name="CollectCoin" type="Node2D"]
+script = ExtResource("1_6fo0s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.533333, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19, 20)
+shape = SubResource("CircleShape2D_nna3e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
