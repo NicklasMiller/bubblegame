@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://r8yb27nlcxf8"]
+
+[ext_resource type="Script" path="res://level_one_poc.gd" id="1_e1vvv"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="1_ut5nm"]
+[ext_resource type="PackedScene" uid="uid://dpc14v0tredjf" path="res://Boundaries/world_base.tscn" id="2_jp7uq"]
+[ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="3_2pqvw"]
+[ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="4_yanhm"]
+[ext_resource type="Script" path="res://l_1_1_to_1_2_teleporter.gd" id="6_w56lh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1js5j"]
+size = Vector2(51, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su8ka"]
+size = Vector2(40, 46)
+
+[node name="Level One PoC" type="Node2D"]
+script = ExtResource("1_e1vvv")
+
+[node name="SideWalls" parent="." instance=ExtResource("1_ut5nm")]
+light_mask = 4
+visibility_layer = 7
+position = Vector2(-3, 2)
+
+[node name="WorldBase" parent="." instance=ExtResource("2_jp7uq")]
+position = Vector2(39, 969)
+
+[node name="Character" parent="." instance=ExtResource("3_2pqvw")]
+light_mask = 7
+position = Vector2(49, 66)
+
+[node name="L1_1_1" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(6, -4)
+
+[node name="L1_1_2" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(156, -4)
+
+[node name="L1_1_3" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(296, -4)
+
+[node name="L1_1_4" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(340, -4)
+
+[node name="L1_1_To_1_2_Teleporter" type="Area2D" parent="."]
+script = ExtResource("6_w56lh")
+target_teleport_area = NodePath("../L1_1_To_1_2_Receiver/CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1_1_To_1_2_Teleporter"]
+light_mask = 2
+visibility_layer = 3
+position = Vector2(469, 86)
+shape = SubResource("RectangleShape2D_1js5j")
+
+[node name="ColorRect" type="ColorRect" parent="L1_1_To_1_2_Teleporter/CollisionShape2D"]
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 14.0
+offset_bottom = 18.0
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="L1_1_To_1_2_Receiver" type="Area2D" parent="."]
+position = Vector2(3, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1_1_To_1_2_Receiver"]
+light_mask = 2
+position = Vector2(26, 245)
+shape = SubResource("RectangleShape2D_su8ka")
+
+[node name="L1_2_1" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(6, 159)
+
+[node name="L1_2_2" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(223, 158)
+
+[node name="L1_2_3" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(354, 158)
+
+[connection signal="body_entered" from="L1_1_To_1_2_Teleporter" to="L1_1_To_1_2_Teleporter" method="_on_body_entered"]
