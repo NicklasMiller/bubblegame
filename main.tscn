@@ -10,3 +10,12 @@ position = Vector2(0, 220)
 
 [node name="Character" parent="." instance=ExtResource("1_idqdn")]
 position = Vector2(70, 286)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("1_rovgf")]
+position = Vector2(209, 221)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("1_rovgf")]
+position = Vector2(343, 330)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("1_rovgf")]
+position = Vector2(176, 395)
