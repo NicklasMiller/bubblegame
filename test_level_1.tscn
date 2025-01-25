@@ -44,10 +44,11 @@ script = ExtResource("9_n87eu")
 [node name="NarratorChat" type="Label" parent="CanvasLayer"]
 offset_left = 72.0
 offset_top = 168.0
-offset_right = 112.0
+offset_right = 416.0
 offset_bottom = 191.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
+autowrap_mode = 3
 
 [node name="NarratorPositive" type="Area2D" parent="."]
 position = Vector2(168, 89)
