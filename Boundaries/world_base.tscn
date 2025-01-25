@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpc14v0tredjf"]
+
+[ext_resource type="Script" path="res://Boundaries/world_base.gd" id="1_ofufs"]
+[ext_resource type="Script" path="res://Boundaries/finish_line.gd" id="2_ibdrf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tk5vi"]
+distance = -87.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x8uo"]
+size = Vector2(69.5, 77.5)
+
+[node name="WorldBase" type="Area2D"]
+position = Vector2(54, 961)
+script = ExtResource("1_ofufs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("WorldBoundaryShape2D_tk5vi")
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(359, 1003)
+script = ExtResource("2_ibdrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(47, -1006)
+shape = SubResource("RectangleShape2D_3x8uo")
+
+[node name="ColorRect" type="ColorRect" parent="FinishLine"]
+offset_left = 24.0
+offset_top = -1001.0
+offset_right = 75.0
+offset_bottom = -961.0
+color = Color(0.203922, 1, 0.313726, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="game_over" from="." to="." method="_ready"]
+[connection signal="body_entered" from="FinishLine" to="." method="_on_finish_line_body_entered"]

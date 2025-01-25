@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp2hq0h3lliec"]
 
-[ext_resource type="Script" path="res://collect_coin.gd" id="1_6fo0s"]
+[ext_resource type="Script" path="res://Collectables/collect_coin.gd" id="1_6fo0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nna3e"]
 radius = 21.095

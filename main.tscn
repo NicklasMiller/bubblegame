@@ -2,16 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="1_idqdn"]
 [ext_resource type="Script" path="res://main.gd" id="1_jivaw"]
-[ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://platform.tscn" id="1_rovgf"]
-[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://sidewalls.tscn" id="3_njy5m"]
-[ext_resource type="PackedScene" uid="uid://dpc14v0tredjf" path="res://world_base.tscn" id="4_16pni"]
-[ext_resource type="PackedScene" uid="uid://c3xg24c70t3pv" path="res://moving_platform.tscn" id="5_qgd6w"]
-[ext_resource type="PackedScene" uid="uid://cp2hq0h3lliec" path="res://collect_coin.tscn" id="6_e3v0c"]
-[ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://coin_counter.tscn" id="8_mgcm5"]
+[ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="1_rovgf"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="3_njy5m"]
+[ext_resource type="PackedScene" uid="uid://dpc14v0tredjf" path="res://Boundaries/world_base.tscn" id="4_16pni"]
+[ext_resource type="PackedScene" uid="uid://c3xg24c70t3pv" path="res://Platforms/moving_platform.tscn" id="5_qgd6w"]
+[ext_resource type="PackedScene" uid="uid://cp2hq0h3lliec" path="res://Collectables/collect_coin.tscn" id="6_e3v0c"]
+[ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://Collectables/coin_counter.tscn" id="8_mgcm5"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_jivaw")
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("1_rovgf")]
+position = Vector2(338, 913)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_rovgf")]
 position = Vector2(3, -8)
@@ -29,7 +32,7 @@ position = Vector2(179, 167)
 position = Vector2(0, -12)
 
 [node name="WorldBase" parent="." instance=ExtResource("4_16pni")]
-position = Vector2(173, 1000)
+position = Vector2(50, 978)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("5_qgd6w")]
 position = Vector2(126, 405)

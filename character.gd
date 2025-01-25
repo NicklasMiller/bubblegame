@@ -3,6 +3,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var score = 0
+var fall_distance = 0
+var previous_y = position.y
+@onready var old_score = 0
+
+@export var highscore = 0
+
 func _ready() -> void:
 	pass
 		
@@ -23,5 +30,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+	# Track the character Y position, relating the further down to a higher score
+	if velocity.y > 0:
+		fall_distance += position.y - previous_y
+		score += int(fall_distance * 0.1)
+		if score > old_score:
+			if score % 2 == 0:
+				print("Score Is: %d" % (score/100))
+		old_score = score
+	previous_y = position.y
+	
 
 	move_and_slide()
