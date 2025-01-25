@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://br1qcxvwj78v2"]
+[gd_scene load_steps=10 format=3 uid="uid://br1qcxvwj78v2"]
 
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="1_idqdn"]
 [ext_resource type="Script" path="res://main.gd" id="1_jivaw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c3xg24c70t3pv" path="res://Platforms/moving_platform.tscn" id="5_qgd6w"]
 [ext_resource type="PackedScene" uid="uid://cp2hq0h3lliec" path="res://Collectables/collect_coin.tscn" id="6_e3v0c"]
 [ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://Collectables/coin_counter.tscn" id="8_mgcm5"]
+[ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_pclg5"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
@@ -43,4 +44,14 @@ position = Vector2(261, 44)
 [node name="Character" parent="." instance=ExtResource("1_idqdn")]
 position = Vector2(67, 26)
 
-[node name="CoinCounter" parent="." instance=ExtResource("8_mgcm5")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinCounter" parent="CanvasLayer" instance=ExtResource("8_mgcm5")]
+offset_top = 27.0
+offset_bottom = 50.0
+text = "Coins: 0
+"
+horizontal_alignment = 1
+script = ExtResource("9_pclg5")
+
+[connection signal="coin_collected" from="CollectCoin" to="CanvasLayer/CoinCounter" method="_on_coin_collected"]
