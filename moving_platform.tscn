@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3xg24c70t3pv"]
+
+[ext_resource type="Script" path="res://animation_player.gd" id="1_gg7hv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2k1"]
+size = Vector2(71, 20)
+
+[sub_resource type="Animation" id="Animation_hpkbb"]
+resource_name = "Platform_Move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHalf/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(25.5, 0), Vector2(-46, 2), Vector2(25.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftHalf/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, -12), Vector2(-80, -11), Vector2(-9, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_et4fc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHalf/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftHalf/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8o3a"]
+_data = {
+"Platform_Move": SubResource("Animation_hpkbb"),
+"RESET": SubResource("Animation_et4fc")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+
+[node name="LeftHalf" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftHalf"]
+position = Vector2(25.5, 0)
+shape = SubResource("RectangleShape2D_ml2k1")
+
+[node name="ColorRect" type="ColorRect" parent="LeftHalf"]
+offset_left = -52.9307
+offset_top = -11.3813
+offset_right = 17.0693
+offset_bottom = 12.6187
+
+[node name="RightHalf" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightHalf"]
+position = Vector2(97, 0)
+shape = SubResource("RectangleShape2D_ml2k1")
+
+[node name="ColorRect2" type="ColorRect" parent="RightHalf"]
+offset_left = 61.0
+offset_top = -12.0
+offset_right = 134.0
+offset_bottom = 12.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h8o3a")
+}
+autoplay = "Platform_Move"
+script = ExtResource("1_gg7hv")
