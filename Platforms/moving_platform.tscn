@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3xg24c70t3pv"]
+[gd_scene load_steps=7 format=3 uid="uid://c3xg24c70t3pv"]
 
 [ext_resource type="Script" path="res://animation_player.gd" id="1_gg7hv"]
 
@@ -67,6 +67,9 @@ _data = {
 "RESET": SubResource("Animation_et4fc")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cisbu"]
+size = Vector2(68, 27)
+
 [node name="MovingPlatform" type="Node2D"]
 
 [node name="LeftHalf" type="StaticBody2D" parent="."]
@@ -99,3 +102,9 @@ libraries = {
 }
 autoplay = "Platform_Move"
 script = ExtResource("1_gg7hv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18, 0.5)
+shape = SubResource("RectangleShape2D_cisbu")

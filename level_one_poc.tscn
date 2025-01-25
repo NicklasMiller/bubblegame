@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://r8yb27nlcxf8"]
+[gd_scene load_steps=15 format=3 uid="uid://r8yb27nlcxf8"]
 
 [ext_resource type="Script" path="res://level_one_poc.gd" id="1_e1vvv"]
 [ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="1_ut5nm"]
@@ -6,12 +6,48 @@
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="3_2pqvw"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="4_yanhm"]
 [ext_resource type="Script" path="res://l_1_1_to_1_2_teleporter.gd" id="6_w56lh"]
+[ext_resource type="Script" path="res://l_1_2_to_1_3_teleporter.gd" id="7_1gx2x"]
+[ext_resource type="PackedScene" uid="uid://c3xg24c70t3pv" path="res://Platforms/moving_platform.tscn" id="8_bg16m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1js5j"]
 size = Vector2(51, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su8ka"]
 size = Vector2(40, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r15pm"]
+size = Vector2(35, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiact"]
+size = Vector2(42, 51)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yeta2"]
+
+[sub_resource type="GDScript" id="GDScript_3ipmq"]
+script/source = "extends Node2D
+
+@export var moving_body: NodePath
+
+var player_on_platform: CharacterBody2D = null
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.name == \"Character\":
+		player_on_platform = body
+
+
+func _on_area_2d_2_body_exited(body: Node2D) -> void:
+	if body.name == \"Character\":
+		player_on_platform = null
+"
 
 [node name="Level One PoC" type="Node2D"]
 script = ExtResource("1_e1vvv")
@@ -74,4 +110,60 @@ position = Vector2(223, 158)
 [node name="L1_2_3" parent="." instance=ExtResource("4_yanhm")]
 position = Vector2(354, 158)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 14.0
+offset_right = 89.0
+offset_bottom = 37.0
+text = "You're A Bubble"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 31.0
+offset_right = 464.0
+offset_bottom = 54.0
+text = "Spikes"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 165.0
+offset_right = 194.0
+offset_bottom = 214.0
+text = "You'll Never Really Die!
+Bubble Bottle 75%"
+
+[node name="L1_2_To_1_3_Teleporter" type="Area2D" parent="."]
+script = ExtResource("7_1gx2x")
+target_teleport_area = NodePath("../L1_2_To_1_3_Receiver/CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1_2_To_1_3_Teleporter"]
+position = Vector2(465, 249)
+shape = SubResource("RectangleShape2D_r15pm")
+
+[node name="ColorRect" type="ColorRect" parent="L1_2_To_1_3_Teleporter/CollisionShape2D"]
+offset_left = -17.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+color = Color(0.20871, 0.20871, 0.20871, 1)
+
+[node name="L1_2_To_1_3_Receiver" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1_2_To_1_3_Receiver"]
+position = Vector2(30, 381)
+shape = SubResource("RectangleShape2D_oiact")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(7, 302)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_yanhm")]
+position = Vector2(344, 298)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("8_bg16m")]
+material = SubResource("CanvasItemMaterial_yeta2")
+position = Vector2(243, 417)
+scale = Vector2(0.75, 0.75)
+script = SubResource("GDScript_3ipmq")
+
 [connection signal="body_entered" from="L1_1_To_1_2_Teleporter" to="L1_1_To_1_2_Teleporter" method="_on_body_entered"]
+[connection signal="body_entered" from="L1_2_To_1_3_Teleporter" to="L1_2_To_1_3_Teleporter" method="_on_body_entered"]
