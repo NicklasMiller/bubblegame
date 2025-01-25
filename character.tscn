@@ -22,3 +22,5 @@ shape = SubResource("CircleShape2D_758ru")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 texture = SubResource("GradientTexture2D_qeduv")
+
+[node name="Camera2D" type="Camera2D" parent="."]

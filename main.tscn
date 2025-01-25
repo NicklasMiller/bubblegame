@@ -1,21 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://br1qcxvwj78v2"]
+[gd_scene load_steps=5 format=3 uid="uid://br1qcxvwj78v2"]
 
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="1_idqdn"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://platform.tscn" id="1_rovgf"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://sidewalls.tscn" id="3_njy5m"]
+[ext_resource type="PackedScene" uid="uid://dpc14v0tredjf" path="res://world_base.tscn" id="4_16pni"]
 
 [node name="Main" type="Node2D"]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_rovgf")]
-position = Vector2(0, 220)
+position = Vector2(3, -8)
 
 [node name="Character" parent="." instance=ExtResource("1_idqdn")]
-position = Vector2(70, 286)
+position = Vector2(46, 36)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("1_rovgf")]
-position = Vector2(209, 221)
+position = Vector2(212, -7)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("1_rovgf")]
-position = Vector2(343, 330)
+position = Vector2(346, 102)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("1_rovgf")]
-position = Vector2(176, 395)
+position = Vector2(179, 167)
+
+[node name="Background" parent="." instance=ExtResource("3_njy5m")]
+position = Vector2(0, -12)
+
+[node name="WorldBase" parent="." instance=ExtResource("4_16pni")]
+position = Vector2(173, 1000)

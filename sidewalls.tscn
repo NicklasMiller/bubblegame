@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxr6vtfawowmt"]
+
+[ext_resource type="Script" path="res://background.gd" id="1_a4tmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76etb"]
+size = Vector2(1011, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8tflc"]
+
+[node name="SideWalls" type="Node2D"]
+script = ExtResource("1_a4tmk")
+
+[node name="SideWalls" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="SideWalls"]
+position = Vector2(-29.625, 496.688)
+rotation = -1.5708
+
+[node name="ColorRect" type="ColorRect" parent="SideWalls/CollisionShape2D"]
+offset_left = -502.0
+offset_top = -36.0
+offset_right = 504.0
+offset_bottom = 39.0
+color = Color(0.848269, 0.648935, 0.349876, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWalls/CollisionShape2D"]
+position = Vector2(-2.49997, 6)
+shape = SubResource("RectangleShape2D_76etb")
+
+[node name="CollisionShape2D2" type="StaticBody2D" parent="SideWalls"]
+position = Vector2(525, 503)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_8tflc")
+
+[node name="ColorRect" type="ColorRect" parent="SideWalls/CollisionShape2D2"]
+offset_left = -504.0
+offset_top = -36.0
+offset_right = 502.0
+offset_bottom = 39.0
+color = Color(0.848269, 0.648935, 0.349876, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideWalls/CollisionShape2D2"]
+position = Vector2(-2.49997, 6)
+shape = SubResource("RectangleShape2D_76etb")
