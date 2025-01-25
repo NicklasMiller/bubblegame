@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://bt52ryk1m7h4x"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_vliic"]
+[ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="3_nh3aa"]
+[ext_resource type="PackedScene" uid="uid://dpc14v0tredjf" path="res://Boundaries/world_base.tscn" id="4_patr6"]
+[ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="7_fvijn"]
+[ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://Collectables/coin_counter.tscn" id="8_4xym8"]
+[ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_n87eu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7x2o"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_vliic")
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("2_y0o3b")]
+position = Vector2(338, 913)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_y0o3b")]
+position = Vector2(56, -7)
+scale = Vector2(2.6, 1)
+
+[node name="Background" parent="." instance=ExtResource("3_nh3aa")]
+position = Vector2(0, -12)
+
+[node name="WorldBase" parent="." instance=ExtResource("4_patr6")]
+position = Vector2(50, 978)
+
+[node name="Character" parent="." instance=ExtResource("7_fvijn")]
+position = Vector2(232, 25)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinCounter" parent="CanvasLayer" instance=ExtResource("8_4xym8")]
+visible = false
+offset_top = 27.0
+offset_bottom = 50.0
+text = "Coins: 0
+"
+horizontal_alignment = 1
+script = ExtResource("9_n87eu")
+
+[node name="NarratorChat" type="Label" parent="CanvasLayer"]
+offset_left = 72.0
+offset_top = 168.0
+offset_right = 112.0
+offset_bottom = 191.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="NarratorPositive" type="Area2D" parent="."]
+position = Vector2(168, 89)
+scale = Vector2(2.52, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive"]
+shape = SubResource("RectangleShape2D_b7x2o")
+
+[node name="NarratorNegative" type="Area2D" parent="."]
+position = Vector2(296, 89)
+scale = Vector2(2.48, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorNegative"]
+shape = SubResource("RectangleShape2D_b7x2o")
+
+[connection signal="body_entered" from="NarratorPositive" to="." method="_on_narrator_positive_body_entered"]
+[connection signal="body_exited" from="NarratorPositive" to="." method="_on_narrator_positive_body_exited"]
+[connection signal="body_entered" from="NarratorNegative" to="." method="_on_narrator_negative_body_entered"]
+[connection signal="body_exited" from="NarratorNegative" to="." method="_on_narrator_negative_body_exited"]
