@@ -28,18 +28,18 @@ func _on_dialog_neg_body_exited(body: Node2D) -> void:
 
 
 func _on_narration_two_trigger_body_entered(body: Node2D) -> void:
-	$CanvasLayer2/NarratorChat2.text = "Ha! You really though I'd let that happen again?"
+	$CanvasLayer/NarratorChat2.text = "Ha! You really though I'd let that happen again?"
 
 func _on_narration_two_trigger_body_exited(body: Node2D) -> void:
-	$CanvasLayer2/NarratorChat2.text = " "
+	$CanvasLayer/NarratorChat2.text = " "
 
 func _on_narrate_three_trig_body_entered(body: Node2D) -> void:
-	$CanvasLayer3/NarrationText.text = "Hmm, This Soft Comb Should Slow It Down..."
+	$CanvasLayer/NarrationText.text = "Hmm, This Soft Comb Should Slow It Down..."
 	
 func _on_narrate_three_trig_body_exited(body: Node2D) -> void:
-	$CanvasLayer3/NarrationText.text = " "
+	$CanvasLayer/NarrationText.text = " "
 
 
 func _on_end_level_blocker_body_entered(body: Node2D) -> void:
 	$SurprisePlatform.visible = true
-	$CanvasLayer4/Narration4.text = "Nice! My Spring Trap Worked! That was close... Wait No!"
+	$CanvasLayer/Narration4.text = "Nice! My Spring Trap Worked! That was close... Wait No!"

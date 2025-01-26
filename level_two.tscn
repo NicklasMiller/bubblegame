@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbmfir3rrs3vg"]
+[gd_scene load_steps=11 format=3 uid="uid://ny4dd47ddeiy"]
 
 [ext_resource type="Script" path="res://level_two.gd" id="1_qw4kc"]
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="2_bff1b"]
@@ -58,10 +58,33 @@ shape = SubResource("RectangleShape2D_ks661")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="NarratorChat" type="Label" parent="CanvasLayer"]
-offset_left = 181.0
+offset_left = 25.0
 offset_top = 4.0
-offset_right = 321.0
+offset_right = 471.0
 offset_bottom = 46.0
+autowrap_mode = 3
+
+[node name="NarratorChat2" type="Label" parent="CanvasLayer"]
+offset_left = 105.0
+offset_top = 140.0
+offset_right = 228.0
+offset_bottom = 163.0
+scale = Vector2(1.43478, 1.3125)
+autowrap_mode = 3
+
+[node name="NarrationText" type="Label" parent="CanvasLayer"]
+offset_left = 136.0
+offset_top = 262.0
+offset_right = 289.0
+offset_bottom = 285.0
+autowrap_mode = 3
+
+[node name="Narration4" type="Label" parent="CanvasLayer"]
+offset_left = 253.0
+offset_top = 759.0
+offset_right = 464.0
+offset_bottom = 782.0
+autowrap_mode = 3
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("3_ws0lk")]
 position = Vector2(247, 81)
@@ -73,15 +96,6 @@ scale = Vector2(0.745001, 1.01779)
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("3_ws0lk")]
 position = Vector2(99, 81)
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="NarratorChat2" type="Label" parent="CanvasLayer2"]
-offset_left = 105.0
-offset_top = 140.0
-offset_right = 228.0
-offset_bottom = 163.0
-scale = Vector2(1.43478, 1.3125)
 
 [node name="NarrationTwoTrigger" type="Area2D" parent="."]
 
@@ -125,14 +139,6 @@ position = Vector2(162, 212)
 position = Vector2(73, 280)
 shape = SubResource("RectangleShape2D_2opuj")
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="NarrationText" type="Label" parent="CanvasLayer3"]
-offset_left = 136.0
-offset_top = 262.0
-offset_right = 289.0
-offset_bottom = 285.0
-
 [node name="EndLevelBlocker" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelBlocker"]
@@ -142,14 +148,6 @@ shape = SubResource("RectangleShape2D_frd4j")
 [node name="SurprisePlatform" parent="." instance=ExtResource("3_ws0lk")]
 visible = false
 position = Vector2(330, 707)
-
-[node name="CanvasLayer4" type="CanvasLayer" parent="."]
-
-[node name="Narration4" type="Label" parent="CanvasLayer4"]
-offset_left = 253.0
-offset_top = 759.0
-offset_right = 464.0
-offset_bottom = 782.0
 
 [node name="LevelEnd" type="Area2D" parent="."]
 
