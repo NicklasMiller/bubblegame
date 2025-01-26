@@ -65,4 +65,8 @@ func _on_timer_timeout() -> void:
 func _on_timer_2_timeout() -> void:
 	$Character.queue_free()
 	print("load level three")
-	#get_tree().change_scene_to_file("res://level_two.tscn")
+	get_tree().change_scene_to_file("res://level_three.tscn")
+
+
+func _on_level_end_body_entered(body: Node2D) -> void:
+	_on_timer_2_timeout()
