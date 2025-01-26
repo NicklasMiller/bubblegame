@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4fm5qreuhw5"]
+
+[ext_resource type="Script" path="res://Levels/level_1.gd" id="1_khc2i"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="2_x4a70"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_khc2i")
+
+[node name="SideWalls" parent="." instance=ExtResource("2_x4a70")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
