@@ -27,7 +27,7 @@ var narrator_negative = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$ThemeMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -74,11 +74,9 @@ func _on_narrator_negative_body_entered(body: Node2D) -> void:
 		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
 		$CanvasLayer/NarratorChat.text = random_phrase
 	elif negative_1_pass >0 and player.velocity.x > 0:
-		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
+		var random_phrase = narrator_negative[randi() % narrator_negative.size()]
 		$CanvasLayer/NarratorChat.text = random_phrase
-	elif negative_1_pass >0:
-		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
-		$CanvasLayer/NarratorChat.text = random_phrase
+
 
 func _on_narrator_negative_body_exited(body: Node2D) -> void:
 	$CanvasLayer/NarratorChat.text = " "
@@ -92,11 +90,9 @@ func _on_narrator_negative_2_body_entered(body: Node2D) -> void:
 		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
 		$CanvasLayer/NarratorChat.text = random_phrase
 	elif negative_2_pass >0 and player.velocity.x > 0:
-		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
+		var random_phrase = narrator_negative[randi() % narrator_positive.size()]
 		$CanvasLayer/NarratorChat.text = random_phrase
-	elif negative_2_pass >0:
-		var random_phrase = narrator_positive[randi() % narrator_positive.size()]
-		$CanvasLayer/NarratorChat.text = random_phrase
+
 
 func _on_narrator_negative_2_body_exited(body: Node2D) -> void:
 	$CanvasLayer/NarratorChat.text = " "
