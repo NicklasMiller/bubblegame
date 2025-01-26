@@ -49,3 +49,10 @@ func _on_wand_reset_body_entered(body: Node2D) -> void:
 	emit_signal("game_over")
 	var current_scene = get_tree().current_scene
 	get_tree().reload_current_scene()
+
+
+func _on_world_reset_body_entered(body: Node2D) -> void:
+	print("You Died!")
+	emit_signal("game_over")
+	var current_scene = get_tree().current_scene
+	get_tree().reload_current_scene()
