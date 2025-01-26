@@ -1,9 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://btew2ipfh2lw5"]
+[gd_scene load_steps=11 format=3 uid="uid://btew2ipfh2lw5"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_x50mx"]
 [ext_resource type="Texture2D" uid="uid://c28qavua57gbv" path="res://Art&Music/RumbleTrouble - Bubble 3.png" id="2_m73of"]
+[ext_resource type="AudioStream" uid="uid://bmr7elbg40yc0" path="res://Sounds/Jump.ogg" id="3_1orv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_758ru"]
+
+[sub_resource type="Animation" id="Animation_ani3j"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_q3ula"]
+resource_name = "move"
+
+[sub_resource type="Animation" id="Animation_stt6y"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_hlpfj"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wxwqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1ry5"]
+_data = {
+"RESET": SubResource("Animation_wxwqf"),
+"death": SubResource("Animation_hlpfj"),
+"idle": SubResource("Animation_ani3j"),
+"jump": SubResource("Animation_stt6y"),
+"move": SubResource("Animation_q3ula")
+}
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_x50mx")
@@ -15,3 +64,11 @@ shape = SubResource("CircleShape2D_758ru")
 texture = ExtResource("2_m73of")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1orv5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b1ry5")
+}

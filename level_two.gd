@@ -56,3 +56,13 @@ func _on_world_reset_body_entered(body: Node2D) -> void:
 	emit_signal("game_over")
 	var current_scene = get_tree().current_scene
 	get_tree().reload_current_scene()
+
+
+func _on_timer_timeout() -> void:
+	$CanvasLayer/CoverPage.visible = true
+	$Timer2.start()
+
+func _on_timer_2_timeout() -> void:
+	$Character.queue_free()
+	print("load level three")
+	#get_tree().change_scene_to_file("res://level_two.tscn")
