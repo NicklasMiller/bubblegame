@@ -42,4 +42,16 @@ func _on_narrator_pipes_body_entered(body: Node2D) -> void:
 
 func _on_good_pipe_body_entered(body: Node2D) -> void:
 	if body.name == "Character":
-		$MakeAChoice/Label.text = "No! Not That One!"
+		$MakeAChoice/Label.text = "I'll Catch it with my bottle!"
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Character":
+		$StaticBody2D13.queue_free()
+		$StaticBody2D18.visible = true
+		$StaticBody2D19.visible = true
+		$MakeAChoice/Label.text = "No! There's a hole in my bubble juice!"
+
+
+func _on_end_level_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
