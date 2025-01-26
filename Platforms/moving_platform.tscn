@@ -79,10 +79,10 @@ position = Vector2(25.5, 0)
 shape = SubResource("RectangleShape2D_ml2k1")
 
 [node name="ColorRect" type="ColorRect" parent="LeftHalf"]
-offset_left = -52.9307
-offset_top = -11.3813
-offset_right = 17.0693
-offset_bottom = 12.6187
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 61.0
+offset_bottom = 12.0
 
 [node name="RightHalf" type="StaticBody2D" parent="."]
 
