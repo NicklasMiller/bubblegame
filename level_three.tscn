@@ -1,0 +1,192 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1kbse584oiqu"]
+
+[ext_resource type="Script" path="res://level_three.gd" id="1_1uouu"]
+[ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="1_wnqnh"]
+[ext_resource type="PackedScene" uid="uid://c3xg24c70t3pv" path="res://Platforms/moving_platform.tscn" id="2_hxelx"]
+[ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="3_boppj"]
+[ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="4_ru2qd"]
+[ext_resource type="PackedScene" uid="uid://cp2hq0h3lliec" path="res://Collectables/collect_coin.tscn" id="6_hilo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8gl6"]
+size = Vector2(111, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7kdi"]
+size = Vector2(210, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1gkh"]
+size = Vector2(206, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4ksf"]
+size = Vector2(508, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5bxv"]
+size = Vector2(28, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqr7v"]
+size = Vector2(147, 105)
+
+[node name="Level_Three" type="Node2D"]
+script = ExtResource("1_1uouu")
+
+[node name="SideWalls" parent="." instance=ExtResource("1_wnqnh")]
+position = Vector2(4, 5)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("2_hxelx")]
+position = Vector2(115, 111)
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("2_hxelx")]
+position = Vector2(383, 111)
+rotation = -3.1415
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(14, -8)
+scale = Vector2(0.119999, 1)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(471, -8)
+scale = Vector2(0.120005, 1)
+
+[node name="Character" parent="." instance=ExtResource("4_ru2qd")]
+position = Vector2(252, 79)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(363, 123)
+rotation = 1.5708
+scale = Vector2(0.52, 1)
+
+[node name="Entered Left Side" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entered Left Side"]
+position = Vector2(123, 140)
+scale = Vector2(1.92, 1)
+shape = SubResource("RectangleShape2D_i8gl6")
+
+[node name="Entered Right Side" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entered Right Side"]
+position = Vector2(371, 139)
+scale = Vector2(2.04, 1)
+shape = SubResource("RectangleShape2D_i8gl6")
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(38, 91)
+scale = Vector2(2.84, 1)
+
+[node name="RightCoin" parent="." instance=ExtResource("6_hilo2")]
+visible = false
+position = Vector2(267, 138)
+
+[node name="LeftCoin" parent="." instance=ExtResource("6_hilo2")]
+visible = false
+position = Vector2(185, 137)
+
+[node name="MakeAChoice" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="MakeAChoice"]
+offset_left = 81.0
+offset_top = 38.0
+offset_right = 423.0
+offset_bottom = 61.0
+text = "Make A Choice, Choose correct, and get a prize!"
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(14, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(62, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(110, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(158, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D9" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(334, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D10" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(382, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(430, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D12" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(478, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D14" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(222, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="StaticBody2D15" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(270, 173)
+scale = Vector2(0.0800006, 1)
+
+[node name="LeftSideGapReset" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSideGapReset"]
+position = Vector2(119, 312)
+shape = SubResource("RectangleShape2D_m7kdi")
+
+[node name="RightSideGapsReset" type="Area2D" parent="."]
+position = Vector2(75, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSideGapsReset"]
+position = Vector2(310, 287)
+shape = SubResource("RectangleShape2D_b1gkh")
+
+[node name="NarratorPipes" type="Area2D" parent="."]
+position = Vector2(0, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPipes"]
+position = Vector2(244, -2)
+shape = SubResource("RectangleShape2D_u4ksf")
+
+[node name="GoodPipe" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodPipe"]
+position = Vector2(252, 314)
+shape = SubResource("RectangleShape2D_a5bxv")
+
+[node name="StaticBody2D13" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(178, 372)
+
+[node name="StaticBody2D16" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(454, 362)
+rotation = 1.65806
+
+[node name="StaticBody2D17" parent="." instance=ExtResource("3_boppj")]
+position = Vector2(70, 511)
+rotation = -1.65806
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(257, 418)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+position = Vector2(-1.5, 16.5)
+shape = SubResource("RectangleShape2D_hqr7v")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D/CollisionShape2D"]
+offset_left = -74.0
+offset_top = -57.0
+offset_right = 72.0
+offset_bottom = 52.0
+color = Color(0.768627, 0.4, 1, 0.164706)
+
+[node name="SwapBucketBottom" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="Entered Left Side" to="." method="_on_entered_left_side_body_entered"]
+[connection signal="body_entered" from="Entered Right Side" to="." method="_on_entered_right_side_body_entered"]
+[connection signal="body_entered" from="LeftSideGapReset" to="." method="_on_left_side_gap_reset_body_entered"]
+[connection signal="body_entered" from="RightSideGapsReset" to="." method="_on_right_side_gaps_reset_body_entered"]
+[connection signal="body_entered" from="NarratorPipes" to="." method="_on_narrator_pipes_body_entered"]
+[connection signal="body_entered" from="GoodPipe" to="." method="_on_good_pipe_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Character" method="_on_area_2d_body_entered"]
