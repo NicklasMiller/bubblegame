@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://UI Elements/game_menu.gd" id="1_phumg"]
 
 [node name="GameMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,9 +27,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -143.0
 offset_top = -23.0
-offset_right = 97.0
+offset_right = 143.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -56,9 +57,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
+offset_left = -146.0
 offset_top = 69.0
-offset_right = 97.0
+offset_right = 142.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -87,13 +88,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -338.0
-offset_right = -18.0
-offset_bottom = -289.0
+offset_left = 31.0
+offset_top = -292.0
+offset_right = -19.0
+offset_bottom = -243.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "\"But meanwhile, time flies; it flies never to be regained.\" - Virgil "
+text = "But meanwhile, time flies; it flies never to be regained. - Virgil "
 autowrap_mode = 2
 
 [connection signal="pressed" from="Panel/Start" to="." method="_on_start_pressed"]
