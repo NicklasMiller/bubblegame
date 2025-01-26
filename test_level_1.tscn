@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt52ryk1m7h4x"]
+[gd_scene load_steps=13 format=3 uid="uid://bt52ryk1m7h4x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vliic"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
@@ -9,27 +9,45 @@
 [ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="8_krcni"]
 [ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_n87eu"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_204hl"]
+
+[sub_resource type="Gradient" id="Gradient_1bmdi"]
+offsets = PackedFloat32Array(0.123377, 0.993506, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.805195, 0.805195, 0.805195, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n6w2r"]
+gradient = SubResource("Gradient_1bmdi")
+fill_from = Vector2(0.53211, 1)
+fill_to = Vector2(0.559633, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7x2o"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_vliic")
 
+[node name="Background2" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_204hl")
+position = Vector2(248, 521)
+scale = Vector2(8, 18)
+texture = SubResource("GradientTexture2D_n6w2r")
+
 [node name="StaticBody2D5" parent="." instance=ExtResource("2_y0o3b")]
 position = Vector2(338, 913)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_y0o3b")]
-position = Vector2(56, -7)
-scale = Vector2(2.6, 1)
+position = Vector2(56, 705)
+scale = Vector2(2.36, 1)
 
 [node name="Background" parent="." instance=ExtResource("3_nh3aa")]
-position = Vector2(0, -12)
+position = Vector2(-16, 57)
 
 [node name="WorldBase" parent="." instance=ExtResource("4_patr6")]
 position = Vector2(50, 978)
 
 [node name="Character" parent="." instance=ExtResource("7_fvijn")]
-position = Vector2(232, 25)
+position = Vector2(232, 737)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,19 +69,20 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 autowrap_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="CoverPage" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 offset_right = 500.0
 offset_bottom = 1000.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PanelContainer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CoverPage"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/ColorRect"]
+[node name="Label" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
 layout_mode = 2
 offset_top = 489.0
 offset_right = 500.0
@@ -73,20 +92,57 @@ text = "Life is tedious and brief..."
 horizontal_alignment = 1
 
 [node name="NarratorPositive" type="Area2D" parent="."]
-position = Vector2(168, 89)
-scale = Vector2(2.52, 1)
+position = Vector2(184, 769)
+scale = Vector2(0.4, 3.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive"]
 shape = SubResource("RectangleShape2D_b7x2o")
+one_way_collision_margin = 0.0
+
+[node name="NarratorPositive3" type="Area2D" parent="."]
+position = Vector2(24, 833)
+scale = Vector2(2.88, 0.56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive3"]
+shape = SubResource("RectangleShape2D_b7x2o")
+one_way_collision_margin = 0.0
+
+[node name="NarratorPositive2" type="Area2D" parent="."]
+position = Vector2(104, 777)
+scale = Vector2(0.447983, 3.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive2"]
+position = Vector2(0, -2.08335)
+shape = SubResource("RectangleShape2D_b7x2o")
 
 [node name="NarratorNegative" type="Area2D" parent="."]
-position = Vector2(296, 89)
-scale = Vector2(2.48, 1)
+position = Vector2(280, 769)
+scale = Vector2(0.44, 3.84)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorNegative"]
 shape = SubResource("RectangleShape2D_b7x2o")
 
+[node name="NarratorNegative2" type="Area2D" parent="."]
+position = Vector2(360, 769)
+scale = Vector2(0.44, 3.88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorNegative2"]
+shape = SubResource("RectangleShape2D_b7x2o")
+
+[node name="NarratorNegative3" type="Area2D" parent="."]
+position = Vector2(440, 833)
+scale = Vector2(2.87605, -0.546651)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorNegative3"]
+shape = SubResource("RectangleShape2D_b7x2o")
+
 [connection signal="body_entered" from="NarratorPositive" to="." method="_on_narrator_positive_body_entered"]
 [connection signal="body_exited" from="NarratorPositive" to="." method="_on_narrator_positive_body_exited"]
+[connection signal="body_entered" from="NarratorPositive3" to="." method="_on_narrator_positive_3_body_entered"]
+[connection signal="body_entered" from="NarratorPositive2" to="." method="_on_narrator_positive_2_body_entered"]
+[connection signal="body_exited" from="NarratorPositive2" to="." method="_on_narrator_positive_2_body_exited"]
 [connection signal="body_entered" from="NarratorNegative" to="." method="_on_narrator_negative_body_entered"]
 [connection signal="body_exited" from="NarratorNegative" to="." method="_on_narrator_negative_body_exited"]
+[connection signal="body_entered" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_entered"]
+[connection signal="body_exited" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_exited"]
+[connection signal="body_entered" from="NarratorNegative3" to="." method="_on_narrator_negative_3_body_entered"]

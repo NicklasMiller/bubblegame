@@ -11,7 +11,7 @@ var narrator_negative = [
 	"Why are you going that way?",
 	"Silly bubble that's the wrong way.",
 	"Why would you do that????",
-	"That's ok, I've got plent of more bubble soap"
+	"That's ok, I've got plenty of more bubble soap"
 	
 	
 ]

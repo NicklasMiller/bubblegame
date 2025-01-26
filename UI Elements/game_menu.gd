@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://test_level_1.tscn")
 
 func _on_dread_pressed() -> void:
 	var random_phrase = phrases[randi() % phrases.size()]
