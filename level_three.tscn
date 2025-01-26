@@ -89,11 +89,14 @@ position = Vector2(185, 137)
 [node name="MakeAChoice" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="MakeAChoice"]
-offset_left = 81.0
+offset_left = 27.0
 offset_top = 38.0
-offset_right = 423.0
-offset_bottom = 61.0
+offset_right = 477.0
+offset_bottom = 83.0
+size_flags_horizontal = 4
 text = "Make A Choice, Choose correct, and get a prize!"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("3_boppj")]
 position = Vector2(14, 173)
