@@ -43,3 +43,9 @@ func _on_narrate_three_trig_body_exited(body: Node2D) -> void:
 func _on_end_level_blocker_body_entered(body: Node2D) -> void:
 	$SurprisePlatform.visible = true
 	$CanvasLayer/Narration4.text = "Nice! My Spring Trap Worked! That was close... Wait No!"
+
+
+func _on_wand_reset_body_entered(body: Node2D) -> void:
+	emit_signal("game_over")
+	var current_scene = get_tree().current_scene
+	get_tree().reload_current_scene()

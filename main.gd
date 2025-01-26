@@ -7,6 +7,7 @@ var coin_count = 0
 @onready var negative_1_pass = 0
 @onready var negative_2_pass = 0
 @onready var player = $Character
+@onready var music = $ThemeMusic
 
 var narrator_positive = [
 	"Just keep going left",
@@ -27,7 +28,7 @@ var narrator_negative = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$ThemeMusic.play()
+	music.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

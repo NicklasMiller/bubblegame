@@ -16,7 +16,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += (get_gravity() * delta)
+		if velocity.y < 0:
+			velocity += get_gravity() * delta
+		else:
+			velocity += ((get_gravity() * delta)*.25)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -33,10 +36,11 @@ func _physics_process(delta: float) -> void:
 	# Track the character Y position, relating the further down to a higher score
 	if velocity.y > 0:
 		fall_distance += position.y - previous_y
-		score += int(fall_distance * 0.1)
-		if score > old_score:
-			if score % 2 == 0:
-				print("Score Is: %d" % (score/100))
+		if position.y >= previous_y + 10:
+			score += int(fall_distance * 0.1)
+			if score > old_score:
+				if score % 2 == 0:
+					print("Score Is: %d" % (score/100))
 		old_score = score
 	previous_y = position.y
 	
