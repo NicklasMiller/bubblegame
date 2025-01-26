@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt52ryk1m7h4x"]
+[gd_scene load_steps=9 format=3 uid="uid://bbxtlor2bnlmo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vliic"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
@@ -15,7 +15,7 @@ position = Vector2(0, -1)
 script = ExtResource("1_vliic")
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("2_y0o3b")]
-position = Vector2(338, 913)
+position = Vector2(334, 871)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_y0o3b")]
 position = Vector2(56, -7)
@@ -25,7 +25,7 @@ scale = Vector2(2.6, 1)
 position = Vector2(0, -12)
 
 [node name="WorldBase" parent="." instance=ExtResource("4_patr6")]
-position = Vector2(50, 978)
+position = Vector2(44, 926)
 
 [node name="Character" parent="." instance=ExtResource("7_fvijn")]
 position = Vector2(232, 25)
