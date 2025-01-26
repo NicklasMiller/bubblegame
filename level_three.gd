@@ -54,4 +54,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_end_level_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	$Timer.start()
+
+func _on_timer_timeout() -> void:
+	$CanvasLayer/CoverPage.visible = true
+	$Timer2.start()
+
+func _on_timer_2_timeout() -> void:
+	$Character.queue_free()
+	print("load level three")
+	get_tree().change_scene_to_file("res://ending_credits.tscn")
