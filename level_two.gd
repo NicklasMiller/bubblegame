@@ -67,6 +67,5 @@ func _on_timer_2_timeout() -> void:
 	print("load level three")
 	get_tree().change_scene_to_file("res://level_three.tscn")
 
-
 func _on_level_end_body_entered(body: Node2D) -> void:
 	_on_timer_2_timeout()

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=13 format=3 uid="uid://dsf8btod4wb7l"]
-=======
 [gd_scene load_steps=15 format=3 uid="uid://b1kbse584oiqu"]
->>>>>>> d8f9b8c081095ad785ab028a33f2c184b084ca2f
 
 [ext_resource type="Script" path="res://level_three.gd" id="1_1uouu"]
 [ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="1_wnqnh"]
