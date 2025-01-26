@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://buobow7vh3khp"]
+
+[ext_resource type="Script" path="res://ending_credits.gd" id="1_s3exg"]
+[ext_resource type="Script" path="res://rich_text_label.gd" id="2_og8wo"]
+
+[node name="EndingCredits" type="Node2D"]
+script = ExtResource("1_s3exg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 104.0
+offset_top = 96.0
+offset_right = 404.0
+offset_bottom = 396.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_og8wo")
