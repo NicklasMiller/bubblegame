@@ -28,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -143.0
-offset_top = -23.0
+offset_top = -65.0
 offset_right = 143.0
-offset_bottom = 8.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
@@ -42,13 +42,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = 36.0
-offset_right = 4.0
-offset_bottom = 44.0
+offset_left = -142.0
+offset_top = -20.0
+offset_right = 146.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Have Exisntential Dread"
+
+[node name="Controls" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 25.0
+offset_right = 144.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controls"
 
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 1
@@ -97,6 +112,76 @@ grow_vertical = 0
 text = "But meanwhile, time flies; it flies never to be regained. - Virgil "
 autowrap_mode = 2
 
+[node name="ControlsMenu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ControlsMenu"]
+layout_mode = 2
+
+[node name="Controls" type="Label" parent="ControlsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -137.5
+offset_right = 187.5
+offset_bottom = 137.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "    Xbox Controller/Keyboard
+
+Move Left: 
+Left Trigger/Left Arrow
+
+Move Right: 
+Right Trigger/Right Arrow
+
+Jump: 
+A/Space Key"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="ControlsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 9.0
+offset_right = 67.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "CONTROLS"
+
+[node name="Label2" type="Label" parent="ControlsMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 355.0
+offset_right = 67.0
+offset_bottom = 381.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "B/Esc to Exit"
+
 [connection signal="pressed" from="Panel/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/Dread" to="." method="_on_dread_pressed"]
+[connection signal="pressed" from="Panel/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
