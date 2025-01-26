@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wyykw1mhfh4r"]
+
+[ext_resource type="Script" path="res://reset_barrier.gd" id="1_81cf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjlp1"]
+size = Vector2(121, 20)
+
+[node name="Reset Barrier" type="Node2D"]
+script = ExtResource("1_81cf2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(50.5, 0)
+shape = SubResource("RectangleShape2D_mjlp1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
