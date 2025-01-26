@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ny4dd47ddeiy"]
+[gd_scene load_steps=11 format=3 uid="uid://c20auxgocqpu1"]
 
 [ext_resource type="Script" path="res://level_two.gd" id="1_qw4kc"]
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="2_bff1b"]
@@ -22,13 +22,6 @@ size = Vector2(196.5, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w54rv"]
 size = Vector2(64, 62)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsqir"]
-distance = -948.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jtnhr"]
-friction = 0.0
-bounce = 1.0
 
 [node name="LevelTwo" type="Node2D"]
 position = Vector2(1, 3)
@@ -111,31 +104,11 @@ position = Vector2(324, 156)
 shape = SubResource("RectangleShape2D_2glyl")
 
 [node name="StaticBody2D7" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 169)
-scale = Vector2(0.160001, 1)
-
-[node name="StaticBody2D16" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 169)
+position = Vector2(11, 190)
 scale = Vector2(0.160001, 1)
 
 [node name="StaticBody2D8" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 191)
-scale = Vector2(0.160001, 0.993076)
-
-[node name="StaticBody2D17" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 234)
-scale = Vector2(0.160001, 0.993076)
-
-[node name="StaticBody2D18" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 254)
-scale = Vector2(0.160001, 0.993076)
-
-[node name="StaticBody2D19" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 276)
-scale = Vector2(0.160001, 0.993076)
-
-[node name="StaticBody2D20" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 298)
+position = Vector2(62, 191)
 scale = Vector2(0.160001, 0.993076)
 
 [node name="StaticBody2D9" parent="." instance=ExtResource("3_ws0lk")]
@@ -155,8 +128,7 @@ position = Vector2(269, 189)
 scale = Vector2(0.160001, 0.993076)
 
 [node name="StaticBody2D13" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(61, 212)
-scale = Vector2(0.679999, 1)
+position = Vector2(11, 212)
 
 [node name="StaticBody2D14" parent="." instance=ExtResource("3_ws0lk")]
 position = Vector2(162, 212)
@@ -164,11 +136,7 @@ position = Vector2(162, 212)
 [node name="NarrateThreeTrig" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NarrateThreeTrig"]
-position = Vector2(73, 261)
-shape = SubResource("RectangleShape2D_2opuj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NarrateThreeTrig"]
-position = Vector2(73, 261)
+position = Vector2(73, 280)
 shape = SubResource("RectangleShape2D_2opuj")
 
 [node name="EndLevelBlocker" type="Area2D" parent="."]
@@ -194,33 +162,8 @@ offset_right = 482.0
 offset_bottom = 920.0
 
 [node name="StaticBody2D15" parent="." instance=ExtResource("3_ws0lk")]
-position = Vector2(87, 815)
-scale = Vector2(3.17138, 1.01027)
-
-[node name="WandReset" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WandReset"]
-shape = SubResource("WorldBoundaryShape2D_fsqir")
-
-[node name="Slide" type="Area2D" parent="."]
-
-[node name="StaticBody2D16" parent="Slide" instance=ExtResource("3_ws0lk")]
-position = Vector2(116, 350)
-rotation = -0.339348
-scale = Vector2(2.0323, 1)
-physics_material_override = SubResource("PhysicsMaterial_jtnhr")
-
-[node name="StaticBody2D18" parent="Slide" instance=ExtResource("3_ws0lk")]
-position = Vector2(99, 394)
-rotation = 0.00214815
-scale = Vector2(0.851849, 1)
-physics_material_override = SubResource("PhysicsMaterial_jtnhr")
-
-[node name="StaticBody2D17" parent="Slide" instance=ExtResource("3_ws0lk")]
-position = Vector2(-22, 931)
-rotation = -1.54423
-scale = Vector2(2.89196, 0.993869)
-physics_material_override = SubResource("PhysicsMaterial_jtnhr")
+position = Vector2(-68, 818)
+scale = Vector2(4.2, 1)
 
 [connection signal="body_entered" from="DialogPos" to="." method="_on_dialog_pos_body_entered"]
 [connection signal="body_exited" from="DialogPos" to="." method="_on_dialog_pos_body_exited"]
@@ -231,4 +174,3 @@ physics_material_override = SubResource("PhysicsMaterial_jtnhr")
 [connection signal="body_entered" from="NarrateThreeTrig" to="." method="_on_narrate_three_trig_body_entered"]
 [connection signal="body_exited" from="NarrateThreeTrig" to="." method="_on_narrate_three_trig_body_exited"]
 [connection signal="body_entered" from="EndLevelBlocker" to="." method="_on_end_level_blocker_body_entered"]
-[connection signal="body_entered" from="WandReset" to="." method="_on_wand_reset_body_entered"]
