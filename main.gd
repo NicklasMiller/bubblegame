@@ -6,6 +6,8 @@ var coin_count = 0
 @onready var positive_2_pass = 0
 @onready var negative_1_pass = 0
 @onready var negative_2_pass = 0
+@onready var restart_phrase = 0
+
 @onready var player = $Character
 @onready var music = $ThemeMusic
 
@@ -28,7 +30,7 @@ var narrator_negative = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	music.play()
+	$ThemeMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -108,6 +110,32 @@ func _on_narrator_negative_3_body_entered(body: Node2D) -> void:
 
 
 func _on_level_finish_body_entered(body: Node2D) -> void:
-	if body.name == "Character":
-		body.queue_free()
-		get_tree().change_scene_to_file("res://level_two.tscn")
+	$Character/AnimationPlayer.play("death")
+	$Pop.play()
+	$Timer.start()
+	print("timer started")
+
+
+func _on_narrator_positive_4_body_entered(body: Node2D) -> void:
+	restart_phrase += 1
+	if restart_phrase == 1:
+		$CanvasLayer/NarratorChat.text = "Land on my bubble wand and I will remake you"
+	elif restart_phrase == 2:
+		$CanvasLayer/NarratorChat.text = "I could do this FOREEEEEEVER!"
+	else:
+		$CanvasLayer/NarratorChat.text = "I will always remake you my little bubble"
+
+#func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	##if $CanvasLayer/CoverPage:
+	#$CanvasLayer/CoverPage.visible = true
+	#$Timer.start()
+	#print("timer started")
+
+func _on_timer_timeout() -> void:
+	$CanvasLayer/CoverPage.visible = true
+	$Timer2.start()
+
+
+func _on_timer_2_timeout() -> void:
+	$Character.queue_free()
+	get_tree().change_scene_to_file("res://level_two.tscn")

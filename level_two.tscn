@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c20auxgocqpu1"]
+[gd_scene load_steps=14 format=3 uid="uid://c20auxgocqpu1"]
 
 [ext_resource type="Script" path="res://level_two.gd" id="1_qw4kc"]
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="2_bff1b"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="3_ws0lk"]
 [ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="4_3q85q"]
+[ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="5_malsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd213"]
 size = Vector2(36, 43)
@@ -92,6 +93,28 @@ offset_top = 759.0
 offset_right = 464.0
 offset_bottom = 782.0
 autowrap_mode = 3
+
+[node name="CoverPage" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_right = 500.0
+offset_bottom = 1000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CoverPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
+layout_mode = 2
+offset_top = 489.0
+offset_right = 500.0
+offset_bottom = 510.0
+theme_override_fonts/font = ExtResource("5_malsm")
+text = "Life is shorter than you think..."
+horizontal_alignment = 1
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("3_ws0lk")]
 position = Vector2(247, 81)
@@ -205,6 +228,12 @@ position = Vector2(18, 497)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldReset"]
 shape = SubResource("WorldBoundaryShape2D_4uc00")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="DialogPos" to="." method="_on_dialog_pos_body_entered"]
 [connection signal="body_exited" from="DialogPos" to="." method="_on_dialog_pos_body_exited"]
 [connection signal="body_entered" from="DialogNeg" to="." method="_on_dialog_neg_body_entered"]
@@ -215,3 +244,5 @@ shape = SubResource("WorldBoundaryShape2D_4uc00")
 [connection signal="body_exited" from="NarrateThreeTrig" to="." method="_on_narrate_three_trig_body_exited"]
 [connection signal="body_entered" from="EndLevelBlocker" to="." method="_on_end_level_blocker_body_entered"]
 [connection signal="body_entered" from="WorldReset" to="." method="_on_world_reset_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

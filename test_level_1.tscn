@@ -27,7 +27,7 @@ fill_to = Vector2(0.559633, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hafj"]
 size = Vector2(61, 63)
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_vliic")
 
@@ -104,14 +104,6 @@ scale = Vector2(1.4, 3.8)
 shape = SubResource("RectangleShape2D_b7x2o")
 one_way_collision_margin = 0.0
 
-[node name="NarratorPositive3" type="Area2D" parent="."]
-position = Vector2(24, 833)
-scale = Vector2(2.88, 0.56)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive3"]
-shape = SubResource("RectangleShape2D_b7x2o")
-one_way_collision_margin = 0.0
-
 [node name="NarratorPositive2" type="Area2D" parent="."]
 position = Vector2(104, 777)
 scale = Vector2(1.44798, 3.84)
@@ -119,6 +111,22 @@ scale = Vector2(1.44798, 3.84)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive2"]
 position = Vector2(0, -2.08335)
 shape = SubResource("RectangleShape2D_b7x2o")
+
+[node name="NarratorPositive3" type="Area2D" parent="NarratorPositive2"]
+position = Vector2(-55.2494, 14.5833)
+scale = Vector2(1.98898, 0.145833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive2/NarratorPositive3"]
+shape = SubResource("RectangleShape2D_b7x2o")
+one_way_collision_margin = 0.0
+
+[node name="NarratorPositive4" type="Area2D" parent="."]
+position = Vector2(232, 712)
+scale = Vector2(0.520001, 3.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NarratorPositive4"]
+shape = SubResource("RectangleShape2D_b7x2o")
+one_way_collision_margin = 0.0
 
 [node name="NarratorNegative" type="Area2D" parent="."]
 position = Vector2(280, 769)
@@ -154,14 +162,23 @@ stream = ExtResource("10_h6qnd")
 position = Vector2(438, 989)
 shape = SubResource("RectangleShape2D_4hafj")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="NarratorPositive" to="." method="_on_narrator_positive_body_entered"]
 [connection signal="body_exited" from="NarratorPositive" to="." method="_on_narrator_positive_body_exited"]
-[connection signal="body_entered" from="NarratorPositive3" to="." method="_on_narrator_positive_3_body_entered"]
 [connection signal="body_entered" from="NarratorPositive2" to="." method="_on_narrator_positive_2_body_entered"]
 [connection signal="body_exited" from="NarratorPositive2" to="." method="_on_narrator_positive_2_body_exited"]
+[connection signal="body_entered" from="NarratorPositive2/NarratorPositive3" to="." method="_on_narrator_positive_3_body_entered"]
+[connection signal="body_entered" from="NarratorPositive4" to="." method="_on_narrator_positive_4_body_entered"]
 [connection signal="body_entered" from="NarratorNegative" to="." method="_on_narrator_negative_body_entered"]
 [connection signal="body_exited" from="NarratorNegative" to="." method="_on_narrator_negative_body_exited"]
 [connection signal="body_entered" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_entered"]
 [connection signal="body_exited" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_exited"]
 [connection signal="body_entered" from="NarratorNegative3" to="." method="_on_narrator_negative_3_body_entered"]
 [connection signal="body_entered" from="LevelFinish" to="." method="_on_level_finish_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

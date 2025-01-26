@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://br1qcxvwj78v2"]
+[gd_scene load_steps=11 format=3 uid="uid://br1qcxvwj78v2"]
 
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="1_idqdn"]
 [ext_resource type="Script" path="res://main.gd" id="1_jivaw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cp2hq0h3lliec" path="res://Collectables/collect_coin.tscn" id="6_e3v0c"]
 [ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://Collectables/coin_counter.tscn" id="8_mgcm5"]
 [ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_pclg5"]
+[ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="10_gjxun"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
@@ -54,4 +55,33 @@ text = "Coins: 0
 horizontal_alignment = 1
 script = ExtResource("9_pclg5")
 
+[node name="CoverPage" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_right = 500.0
+offset_bottom = 1000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CoverPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
+layout_mode = 2
+offset_top = 489.0
+offset_right = 500.0
+offset_bottom = 510.0
+theme_override_fonts/font = ExtResource("10_gjxun")
+text = "Life is tedious and brief..."
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="coin_collected" from="CollectCoin" to="CanvasLayer/CoinCounter" method="_on_coin_collected"]
+[connection signal="animation_finished" from="Character/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Character"]
