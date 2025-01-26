@@ -105,3 +105,9 @@ func _on_narrator_positive_3_body_entered(body: Node2D) -> void:
 
 func _on_narrator_negative_3_body_entered(body: Node2D) -> void:
 	$CanvasLayer/NarratorChat.text = "Nooooo!"
+
+
+func _on_level_finish_body_entered(body: Node2D) -> void:
+	if body.name == "Character":
+		body.queue_free()
+		get_tree().change_scene_to_file("res://level_two.tscn")

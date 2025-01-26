@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt52ryk1m7h4x"]
+[gd_scene load_steps=16 format=3 uid="uid://bt52ryk1m7h4x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vliic"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
@@ -23,6 +23,9 @@ fill_from = Vector2(0.53211, 1)
 fill_to = Vector2(0.559633, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7x2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hafj"]
+size = Vector2(61, 63)
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
@@ -145,6 +148,12 @@ stream = ExtResource("9_vpr0t")
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_h6qnd")
 
+[node name="LevelFinish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinish"]
+position = Vector2(438, 989)
+shape = SubResource("RectangleShape2D_4hafj")
+
 [connection signal="body_entered" from="NarratorPositive" to="." method="_on_narrator_positive_body_entered"]
 [connection signal="body_exited" from="NarratorPositive" to="." method="_on_narrator_positive_body_exited"]
 [connection signal="body_entered" from="NarratorPositive3" to="." method="_on_narrator_positive_3_body_entered"]
@@ -155,3 +164,4 @@ stream = ExtResource("10_h6qnd")
 [connection signal="body_entered" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_entered"]
 [connection signal="body_exited" from="NarratorNegative2" to="." method="_on_narrator_negative_2_body_exited"]
 [connection signal="body_entered" from="NarratorNegative3" to="." method="_on_narrator_negative_3_body_entered"]
+[connection signal="body_entered" from="LevelFinish" to="." method="_on_level_finish_body_entered"]
