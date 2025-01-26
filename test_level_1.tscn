@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="7_fvijn"]
 [ext_resource type="PackedScene" uid="uid://6vm1l6kaux64" path="res://Collectables/coin_counter.tscn" id="8_4xym8"]
 [ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="8_krcni"]
-[ext_resource type="AudioStream" uid="uid://dvhumn40d8ipp" path="res://Art&Music/Bubblegame-MainTheme.wav" id="9_8dnyq"]
 [ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_n87eu"]
+[ext_resource type="AudioStream" uid="uid://dwvkrikjo35n5" path="res://Art&Music/Bubblegame-MainTheme.ogg" id="9_vpr0t"]
 [ext_resource type="AudioStream" uid="uid://blnintps7bxrb" path="res://Sounds/Pop.wav" id="10_h6qnd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_204hl"]
@@ -139,7 +139,8 @@ scale = Vector2(2.87605, -0.546651)
 shape = SubResource("RectangleShape2D_b7x2o")
 
 [node name="ThemeMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_8dnyq")
+position = Vector2(16, -47)
+stream = ExtResource("9_vpr0t")
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_h6qnd")
