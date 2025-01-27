@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cqwmqlfjyieer"
+=======
+uid="uid://dil3rob81cwgb"
+>>>>>>> c459a61ed215b2d9078897189824660e13ecc2a9
 path="res://.godot/imported/Bubble Down - Logo.png-17191d2aae944a711bb8a6126b3e5053.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://wmisk0bttqlj"
+=======
+uid="uid://i4stum8xeq71"
+>>>>>>> c459a61ed215b2d9078897189824660e13ecc2a9
 path="res://.godot/imported/Collectable Bubbles.png-54b219ea44062daabf84e24d59d16940.ctex"
 metadata={
 "vram_texture": false
