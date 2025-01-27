@@ -6,7 +6,9 @@
 [node name="EndingCredits" type="Node2D"]
 script = ExtResource("1_s3exg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 104.0
 offset_top = 96.0
 offset_right = 404.0
@@ -14,3 +16,49 @@ offset_bottom = 396.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_og8wo")
+
+[node name="Timer_Credits" type="Timer" parent="CanvasLayer"]
+wait_time = 6.0
+one_shot = true
+
+[node name="EndCredits" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -468.0
+offset_right = 206.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="CanvasLayer/EndCredits"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EndCredits/Panel"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 400.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="Created By" type="Label" parent="CanvasLayer/EndCredits/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Created By:
+Nick 
+Adam
+Sebastian
+Joe"
+
+[connection signal="timeout" from="CanvasLayer/Timer_Credits" to="CanvasLayer/RichTextLabel" method="_on_timer_credits_timeout"]

@@ -113,13 +113,14 @@ func _on_level_finish_body_entered(body: Node2D) -> void:
 	$Character/AnimationPlayer.play("death")
 	$Pop.play()
 	$Timer.start()
+	$WorldBase/FinishLine/Sprite2D2.visible = true
 	print("timer started")
 
 
 func _on_narrator_positive_4_body_entered(body: Node2D) -> void:
 	restart_phrase += 1
 	if restart_phrase == 1:
-		$CanvasLayer/NarratorChat.text = "Land on my bubble wand and I will remake you"
+		$CanvasLayer/NarratorChat.text = "Land in the bubbles and I will remake you"
 	elif restart_phrase == 2:
 		$CanvasLayer/NarratorChat.text = "I could do this FOREEEEEEVER!"
 	else:

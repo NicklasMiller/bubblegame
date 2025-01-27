@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt52ryk1m7h4x"]
+[gd_scene load_steps=17 format=3 uid="uid://bt52ryk1m7h4x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vliic"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_n87eu"]
 [ext_resource type="AudioStream" uid="uid://dwvkrikjo35n5" path="res://Art&Music/Bubblegame-MainTheme.ogg" id="9_vpr0t"]
 [ext_resource type="AudioStream" uid="uid://blnintps7bxrb" path="res://Sounds/Pop.wav" id="10_h6qnd"]
+[ext_resource type="Texture2D" uid="uid://buccvomvf5yuw" path="res://Art&Music/Tub 1.png" id="11_wgucc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_204hl"]
 
@@ -167,6 +168,12 @@ one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(63, 997)
+scale = Vector2(4, 4)
+texture = ExtResource("11_wgucc")
 
 [connection signal="body_entered" from="NarratorPositive" to="." method="_on_narrator_positive_body_entered"]
 [connection signal="body_exited" from="NarratorPositive" to="." method="_on_narrator_positive_body_exited"]

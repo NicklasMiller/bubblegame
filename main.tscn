@@ -84,4 +84,6 @@ one_shot = true
 [connection signal="animation_finished" from="Character/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
+[editable path="StaticBody2D5"]
+[editable path="WorldBase"]
 [editable path="Character"]
