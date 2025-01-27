@@ -11,7 +11,7 @@ var previous_y = position.y
 @export var highscore = 0
 
 func _ready() -> void:
-	pass
+	$AnimationPlayer.play("idle")
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("jump")
 		$AudioStreamPlayer2D.play()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -31,8 +33,15 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if Input.is_action_pressed("ui_left"):
+			$AnimationPlayer.play("move")
+		if Input.is_action_pressed("ui_right"):
+			$CollisionShape2D/Sprite2D.flip_h
+			$AnimationPlayer.play("move")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimationPlayer.play("idle")
+		
 		
 	# Track the character Y position, relating the further down to a higher score
 	if velocity.y > 0:
