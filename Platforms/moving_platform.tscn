@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c3xg24c70t3pv"]
 
-[ext_resource type="Texture2D" uid="uid://vysrfuunyq1w" path="res://Art&Music/Floors.png" id="1_f8yfn"]
+[ext_resource type="Texture2D" uid="uid://dytjspfkkeofq" path="res://Art&Music/Floors.png" id="1_f8yfn"]
 [ext_resource type="Script" path="res://animation_player.gd" id="1_gg7hv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2k1"]
@@ -29,6 +29,18 @@ tracks/1/path = NodePath("LeftHalf/ColorRect:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, -12), Vector2(-80, -11), Vector2(-9, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftHalf/TextureRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
