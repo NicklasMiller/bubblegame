@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ny4dd47ddeiy"]
+[gd_scene load_steps=18 format=3 uid="uid://ny4dd47ddeiy"]
 
 [ext_resource type="Script" path="res://level_two.gd" id="1_qw4kc"]
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="2_bff1b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="4_3q85q"]
 [ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="5_malsm"]
 [ext_resource type="AudioStream" uid="uid://batmwwrs5utlu" path="res://Art&Music/Stage-music-2.ogg" id="6_442f0"]
+[ext_resource type="Texture2D" uid="uid://dsmmtbf3xptn5" path="res://Art&Music/thought_bubble.png" id="6_rgrqw"]
 [ext_resource type="Texture2D" uid="uid://buccvomvf5yuw" path="res://Art&Music/Tub 1.png" id="7_fpbuo"]
 [ext_resource type="Texture2D" uid="uid://rxo1o0mt0fa1" path="res://Art&Music/Spike_1.png" id="8_k3xxy"]
 
@@ -108,7 +109,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0, 0, 0, 1)
+color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
 layout_mode = 2
@@ -116,8 +117,28 @@ offset_top = 489.0
 offset_right = 500.0
 offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("5_malsm")
-text = "Life is shorter than you think..."
+theme_override_font_sizes/font_size = 30
+text = "Life is shorter 
+than you think..."
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
+layout_mode = 2
+offset_left = -7.0
+offset_top = 370.0
+offset_right = 493.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_malsm")
+theme_override_font_sizes/font_size = 20
+text = "Thought Bubbles"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CoverPage"]
+texture_filter = 1
+position = Vector2(247, 623)
+scale = Vector2(0.448786, 0.542491)
+texture = ExtResource("6_rgrqw")
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("3_ws0lk")]
 position = Vector2(247, 81)

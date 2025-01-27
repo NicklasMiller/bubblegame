@@ -1,8 +1,7 @@
 extends Control
 var controls_menu_open = false
 var phrases =  [
-"Time is a brisk wind, for each hour it brings something new. - Paracelsus",
-"Time, because it is so fleeting, time, because it is beyond recall, is the most precious of human goods and to squander it is is the most delicate form of dissipation in which man can indulge. - W. Somerset Maugham", 
+"Time is a brisk wind, for each hour it brings something new. - Paracelsus", 
 "But meanwhile, time flies; it flies never to be regained. - Virgil" ,
 "Time moves slowly but passes quickly. - Alice Walker", 
 "Those who make the worst use of their time are the first to complain of its brevity. - Jean de La Bruyère", 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bt52ryk1m7h4x"]
+[gd_scene load_steps=18 format=3 uid="uid://bt52ryk1m7h4x"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_vliic"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="2_y0o3b"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="8_krcni"]
 [ext_resource type="Script" path="res://Collectables/coin_counter.gd" id="9_n87eu"]
 [ext_resource type="AudioStream" uid="uid://dwvkrikjo35n5" path="res://Art&Music/Bubblegame-MainTheme.ogg" id="9_vpr0t"]
+[ext_resource type="Texture2D" uid="uid://dsmmtbf3xptn5" path="res://Art&Music/thought_bubble.png" id="9_xwj1t"]
 [ext_resource type="AudioStream" uid="uid://blnintps7bxrb" path="res://Sounds/Pop.wav" id="10_h6qnd"]
 [ext_resource type="Texture2D" uid="uid://buccvomvf5yuw" path="res://Art&Music/Tub 1.png" id="11_wgucc"]
 
@@ -86,7 +87,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0, 0, 0, 1)
+color = Color(0.187176, 0.187176, 0.187176, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
 layout_mode = 2
@@ -94,8 +95,28 @@ offset_top = 489.0
 offset_right = 500.0
 offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("8_krcni")
-text = "Life is tedious and brief..."
+theme_override_font_sizes/font_size = 30
+text = "Life is tedious 
+and brief..."
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/CoverPage/ColorRect"]
+layout_mode = 2
+offset_left = -7.0
+offset_top = 370.0
+offset_right = 493.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_krcni")
+theme_override_font_sizes/font_size = 20
+text = "Thought Bubbles"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CoverPage"]
+texture_filter = 1
+position = Vector2(247, 623)
+scale = Vector2(0.448786, 0.542491)
+texture = ExtResource("9_xwj1t")
 
 [node name="NarratorPositive" type="Area2D" parent="."]
 position = Vector2(184, 769)
@@ -167,6 +188,7 @@ shape = SubResource("RectangleShape2D_4hafj")
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

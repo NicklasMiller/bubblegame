@@ -93,10 +93,10 @@ position = Vector2(185, 137)
 
 [node name="Label" type="Label" parent="MakeAChoice"]
 texture_filter = 1
-offset_left = 27.0
-offset_top = 38.0
-offset_right = 477.0
-offset_bottom = 83.0
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 474.0
+offset_bottom = 125.0
 size_flags_horizontal = 4
 text = "Make A Choice, Choose correct, and get a prize!"
 horizontal_alignment = 1
@@ -274,3 +274,5 @@ texture = ExtResource("9_73jka")
 [connection signal="body_entered" from="End Level" to="." method="_on_end_level_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+
+[editable path="MovingPlatform2"]
