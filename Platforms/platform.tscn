@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bksihhto2m3hl"]
+[gd_scene load_steps=5 format=3 uid="uid://bksihhto2m3hl"]
+
+[ext_resource type="Texture2D" uid="uid://vysrfuunyq1w" path="res://Art&Music/Floors.png" id="1_mv1qs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4805"]
 size = Vector2(147, 20)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opmq8"]
+texture = ExtResource("1_mv1qs")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bqi4u"]
+sources/0 = SubResource("TileSetAtlasSource_opmq8")
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -10,7 +22,20 @@ position = Vector2(73.5, 118)
 shape = SubResource("RectangleShape2D_b4805")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_top = 109.0
 offset_right = 149.0
 offset_bottom = 129.0
 color = Color(0.938099, 0.697159, 0.532503, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_bqi4u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -13.0
+offset_top = 104.0
+offset_right = 136.0
+offset_bottom = 136.0
+scale = Vector2(1.16, 1)
+texture = ExtResource("1_mv1qs")

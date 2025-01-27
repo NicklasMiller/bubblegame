@@ -32,6 +32,7 @@ size = Vector2(147, 105)
 size = Vector2(45, 31)
 
 [node name="Level_Three" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_1uouu")
 
 [node name="SideWalls" parent="." instance=ExtResource("1_wnqnh")]
@@ -89,6 +90,7 @@ position = Vector2(185, 137)
 [node name="MakeAChoice" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="MakeAChoice"]
+texture_filter = 1
 offset_left = 27.0
 offset_top = 38.0
 offset_right = 477.0
