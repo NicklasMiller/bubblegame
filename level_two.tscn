@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://ny4dd47ddeiy"]
+[gd_scene load_steps=17 format=3 uid="uid://ny4dd47ddeiy"]
 
 [ext_resource type="Script" path="res://level_two.gd" id="1_qw4kc"]
 [ext_resource type="PackedScene" uid="uid://btew2ipfh2lw5" path="res://character.tscn" id="2_bff1b"]
 [ext_resource type="PackedScene" uid="uid://bksihhto2m3hl" path="res://Platforms/platform.tscn" id="3_ws0lk"]
 [ext_resource type="PackedScene" uid="uid://cxr6vtfawowmt" path="res://Boundaries/sidewalls.tscn" id="4_3q85q"]
 [ext_resource type="FontFile" uid="uid://dwwlgg8wd4bi6" path="res://Utility/DePixelHalbfett.ttf" id="5_malsm"]
+[ext_resource type="AudioStream" uid="uid://batmwwrs5utlu" path="res://Art&Music/Stage-music-2.ogg" id="6_442f0"]
+[ext_resource type="Texture2D" uid="uid://buccvomvf5yuw" path="res://Art&Music/Tub 1.png" id="7_fpbuo"]
+[ext_resource type="Texture2D" uid="uid://rxo1o0mt0fa1" path="res://Art&Music/Spike_1.png" id="8_k3xxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd213"]
 size = Vector2(36, 43)
@@ -202,6 +205,7 @@ position = Vector2(451, 888)
 shape = SubResource("RectangleShape2D_w54rv")
 
 [node name="ColorRect" type="ColorRect" parent="LevelEnd"]
+visible = false
 offset_left = 421.0
 offset_top = 862.0
 offset_right = 482.0
@@ -233,6 +237,21 @@ one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_442f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(87, 997)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fpbuo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(471, 893)
+scale = Vector2(3, 3)
+texture = ExtResource("8_k3xxy")
 
 [connection signal="body_entered" from="DialogPos" to="." method="_on_dialog_pos_body_entered"]
 [connection signal="body_exited" from="DialogPos" to="." method="_on_dialog_pos_body_exited"]

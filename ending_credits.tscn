@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://buobow7vh3khp"]
+[gd_scene load_steps=4 format=3 uid="uid://buobow7vh3khp"]
 
 [ext_resource type="Script" path="res://ending_credits.gd" id="1_s3exg"]
 [ext_resource type="Script" path="res://rich_text_label.gd" id="2_og8wo"]
+[ext_resource type="AudioStream" uid="uid://bv1pxqmqjpa5k" path="res://Art&Music/end.ogg" id="3_k60ql"]
 
 [node name="EndingCredits" type="Node2D"]
 script = ExtResource("1_s3exg")
@@ -22,7 +23,6 @@ wait_time = 6.0
 one_shot = true
 
 [node name="EndCredits" type="PanelContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,11 +54,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Created By:
-Nick 
-Adam
-Sebastian
-Joe"
+
+Nick Miller
+
+Adam Bark
+
+Sebastian Hernandez Sanchez
+
+Joe Little"
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k60ql")
 
 [connection signal="timeout" from="CanvasLayer/Timer_Credits" to="CanvasLayer/RichTextLabel" method="_on_timer_credits_timeout"]
